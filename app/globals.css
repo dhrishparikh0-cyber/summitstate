@@ -112,6 +112,43 @@ body{background:var(--summit-ink)}
 .pro-visual:after{content:"";position:absolute;inset:auto 0 0;height:4px;background:linear-gradient(90deg,transparent,#c9ae78,#8bcfff,transparent);opacity:.8}
 
 
+
+/* Homepage banner + marquee repair */
+.summit-marquee{width:100%;overflow:hidden;background:#050d15;border-block:1px solid rgba(201,174,120,.18);white-space:nowrap}
+.marquee-track{display:flex;width:max-content;align-items:center;gap:8px;padding:9px 0;min-width:100%;animation:summitMarquee 28s linear infinite;font:800 10px Manrope;letter-spacing:1.2px;color:#d7d0c0}
+.marquee-track span,.marquee-track i{flex:0 0 auto}
+.marquee-track i{font-style:normal;color:#c9ae78}
+@keyframes summitMarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+.summit-banner{position:relative;overflow:hidden;width:100%;background:
+  linear-gradient(100deg,#07111d 0%,#0d1d2b 52%,#102d3d 100%);
+  border-block:1px solid rgba(201,174,120,.16);
+  padding:86px 0 92px;
+}
+.summit-banner:before{content:"";position:absolute;inset:0;pointer-events:none;background:
+  radial-gradient(circle at 78% 42%,rgba(108,200,255,.13),transparent 28%),
+  linear-gradient(115deg,transparent 30%,rgba(181,229,255,.06) 50%,transparent 70%);
+  animation:summitBannerDrift 12s ease-in-out infinite alternate;
+}
+.summit-banner:after{content:"";position:absolute;right:-140px;top:-190px;width:520px;height:520px;border:1px solid rgba(139,207,255,.13);border-radius:50%;box-shadow:0 0 0 45px rgba(139,207,255,.025),0 0 0 90px rgba(139,207,255,.018);pointer-events:none}
+.summit-banner-inner{position:relative;z-index:1;width:min(1140px,90vw);margin:auto}
+.summit-banner .pro-eyebrow{display:block}
+.summit-banner h2{font:800 clamp(40px,5.5vw,68px)/1.02 Manrope;letter-spacing:-3px;margin:18px 0 17px;color:#f4f8fc}
+.summit-banner h2 em{font-style:italic;background:linear-gradient(100deg,#f1dfb5,#72d6c3 75%,#e9e4d4);-webkit-background-clip:text;background-clip:text;color:transparent}
+.summit-banner p{max-width:680px;margin:0;color:#b5c5d1;font-size:15px;line-height:1.8}
+.summit-banner .pro-buttons{margin-top:28px}
+.summit-banner .pro-secondary{background:rgba(16,35,48,.7);border-color:#54756f}
+@keyframes summitBannerDrift{from{transform:translate3d(-1%,0,0) scale(1)}to{transform:translate3d(2%,-1%,0) scale(1.05)}}
+
+@media(max-width:720px){
+  .summit-banner{padding:65px 0 72px}
+  .summit-banner h2{letter-spacing:-2px}
+  .summit-banner p{font-size:13px}
+}
+@media(prefers-reduced-motion:reduce){
+  .marquee-track,.summit-banner:before{animation:none}
+}
+
 /* Cinematic motion pass */
 @keyframes summitDrift{0%{transform:translate3d(-2%,0,0) scale(1)}100%{transform:translate3d(2%,-2%,0) scale(1.06)}}
 @keyframes summitPulse{0%,100%{opacity:.55;box-shadow:0 0 0 0 #83d2ff00}50%{opacity:1;box-shadow:0 0 0 7px #83d2ff12}}
