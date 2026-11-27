@@ -1,0 +1,2 @@
+import {NextRequest,NextResponse} from "next/server";
+export async function POST(req:NextRequest){try{const body=await req.json();if(!body.type||!body.discord||!body.answers)return NextResponse.json({error:"Missing required application fields."},{status:400});return NextResponse.json({ok:true,message:"Application payload validated. Firebase persistence will be enabled when the project credentials are connected."},{status:202});}catch{return NextResponse.json({error:"Invalid JSON."},{status:400})}}
