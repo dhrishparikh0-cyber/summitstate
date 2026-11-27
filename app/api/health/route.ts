@@ -1,0 +1,1 @@
+import {NextResponse} from "next/server";export async function GET(){return NextResponse.json({ok:true,service:"summit-state-roleplay",firebase:"not-connected",discord:"not-connected"});}
