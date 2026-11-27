@@ -1,0 +1,1 @@
+import {NextResponse} from "next/server";export async function GET(){return NextResponse.json({authenticated:false,staff:false,permissions:[],message:"Connect Discord OAuth and Firebase session verification to enable staff access."});}
