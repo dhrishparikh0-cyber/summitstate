@@ -1,0 +1,2 @@
+import {NextRequest,NextResponse} from "next/server";
+export async function GET(req:NextRequest){const code=req.nextUrl.searchParams.get("code");if(!code)return NextResponse.json({error:"Missing OAuth code."},{status:400});return NextResponse.json({ok:false,message:"OAuth callback scaffold is ready. Add server-side Discord token exchange and Firebase session creation after credentials are configured."},{status:501});}
